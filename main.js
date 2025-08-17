@@ -1,16 +1,22 @@
 import * as THREE from 'three';
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; // to rotate the camera
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+const canvas = document.querySelector('canvas');
+const scene = new THREE.Scene();
+const fov = 75;
+const aspect = 2; // the canvas default
+const near = 0.1;
+const far = 100;
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+camera.position.z = 3;
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 0);
+controls.update();
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 //const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
@@ -41,6 +47,18 @@ light.position.set(-1, 2, 4);
 scene.add(light);
 
 camera.position.z = 5;
+
+// skybox textures
+const loader = new THREE.CubeTextureLoader();
+const texture = loader.load([
+  '/resources/px.bmp',
+  '/resources/nx.bmp',
+  '/resources/py.bmp',
+  '/resources/ny.bmp',
+  '/resources/pz.bmp',
+  '/resources/nz.bmp',
+]);
+scene.background = texture;
 
 function render(time) {
   time *= 0.001; // convert time to seconds
