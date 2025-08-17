@@ -1,6 +1,8 @@
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
+//import * as THREE from 'three';
 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; // to rotate the camera
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
+//import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; // to rotate the camera
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
