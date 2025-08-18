@@ -53,12 +53,12 @@ camera.position.z = 5;
 // skybox textures
 const loader = new THREE.CubeTextureLoader();
 const texture = loader.load([
-  '/resources/px.jpg',
-  '/resources/nx.jpg',
-  '/resources/py.jpg',
-  '/resources/ny.jpg',
-  '/resources/pz.jpg',
-  '/resources/nz.jpg',
+  './resources/px.bmp',
+  './resources/nx.bmp',
+  './resources/py.bmp',
+  './resources/ny.bmp',
+  './resources/pz.bmp',
+  './resources/nz.bmp',
 ]);
 scene.background = texture;
 
