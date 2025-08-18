@@ -1,8 +1,8 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
-//import * as THREE from 'three';
+//import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
+import * as THREE from 'three';
 
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
-//import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; // to rotate the camera
+//import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; // to rotate the camera
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -53,12 +53,12 @@ camera.position.z = 5;
 // skybox textures
 const loader = new THREE.CubeTextureLoader();
 const texture = loader.load([
-  './resources/px.bmp',
-  './resources/nx.bmp',
-  './resources/py.bmp',
-  './resources/ny.bmp',
-  './resources/pz.bmp',
-  './resources/nz.bmp',
+  '/resources/px.jpg',
+  '/resources/nx.jpg',
+  '/resources/py.jpg',
+  '/resources/ny.jpg',
+  '/resources/pz.jpg',
+  '/resources/nz.jpg',
 ]);
 scene.background = texture;
 
